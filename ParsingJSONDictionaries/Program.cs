@@ -14,10 +14,21 @@ namespace ParsingJSONDictionaries
         static void Main(string[] args)
         {
             Currency currencyResponse = new Currency();
-            currencyResponse = Get("CAD");
+            currencyResponse = Get("USD");
             Console.WriteLine(currencyResponse.Base);
             Console.WriteLine(currencyResponse.Date);
-            Console.WriteLine(currencyResponse.Rates);
+            foreach(var item in currencyResponse.Rates)
+            {
+                Console.WriteLine(item);
+            }
+            
+
+            if(currencyResponse.Rates.ContainsKey("CAD"))
+            {
+                decimal CAD = currencyResponse.Rates["CAD"];
+                Console.WriteLine("One USD is {0} CAD", CAD);
+            }
+            Console.ReadKey();
         }
 
         public static Currency Get(string type)
