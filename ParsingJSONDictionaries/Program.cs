@@ -28,6 +28,7 @@ namespace ParsingJSONDictionaries
                 decimal CAD = currencyResponse.Rates["CAD"];
                 Console.WriteLine("One USD is {0} CAD", CAD);
             }
+
             Console.ReadKey();
         }
 
